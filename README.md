@@ -1,91 +1,95 @@
 # SiteResolve website
 
-The public marketing website for SiteResolve, built in the **Record** layout chosen from the design
-exploration in [`design/`](design/). It uses the SiteResolve design system's colours, type and spacing.
-
-Plain HTML, CSS and JavaScript. No framework and no runtime dependencies. A small Node script
-assembles the pages from shared partials.
+The public marketing website for SiteResolve, in the **Record** layout chosen from the design exploration
+in [`design/`](design/). Built with Next.js (App Router), React, TypeScript and Tailwind CSS, using the
+SiteResolve design system's colours, type and spacing.
 
 ## Quick start
 
-Requires Node 18 or later. There is nothing to install.
+Requires Node 20.9 or later.
 
 ```sh
-npm run dev      # build to dist/ and serve it at http://localhost:4173
-npm run build    # build only
-npm run check    # build, then check content rules, links, anchors, labels and alt text
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build
+npm start          # serve the production build
+npm run check      # content rules (no em dashes or banned phrases) and TypeScript
 ```
 
-Deploy the `dist/` folder to any static host. `vercel.json` is included for Vercel
-(build command `npm run build`, output `dist`, clean URLs).
+Copy `.env.example` to `.env.local` to set local values.
+
+## Deploying on Vercel
+
+Import the repository in Vercel. It detects Next.js, so no build settings are needed. Set these
+environment variables in the project:
+
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Final domain without a trailing slash. Enables canonical links, Open Graph URLs and `sitemap.xml`. |
+| `NEXT_PUBLIC_SHOW_DRAFT_NOTICES` | Set to `false` to hide the draft banners and `[CONFIRM ...]` notes once content is final. |
+| `WAITLIST_WEBHOOK_URL`, `CONTACT_WEBHOOK_URL`, `CAREERS_WEBHOOK_URL` | Where each form's submissions are sent. |
 
 ## Pages
 
-| File | Page |
+| Route | Page |
 | --- | --- |
-| `index.html` | Home |
-| `product.html` | Product |
-| `solutions.html` | Solutions (sections: `#construction`, `#property-management`, `#facilities-management`, `#maintenance`, `#inspections`) |
-| `pricing.html` | Pricing |
-| `about.html` | About |
-| `contact.html` | Contact (`?reason=pricing` preselects the reason) |
-| `careers.html` | Careers |
-| `privacy.html`, `cookies.html`, `terms.html` | Legal drafts |
-| `waitlist-confirmation.html` | Shown after a successful waitlist sign-up (not indexed) |
-| `404.html` | Not found page, works at any path (not indexed) |
+| `/` | Home |
+| `/product` | Product |
+| `/solutions` | Solutions (sections: `#construction`, `#property-management`, `#facilities-management`, `#maintenance`, `#inspections`) |
+| `/pricing` | Pricing |
+| `/about` | About |
+| `/contact` | Contact (`?reason=pricing` preselects the reason) |
+| `/careers` | Careers |
+| `/privacy`, `/cookies`, `/terms` | Legal drafts |
+| `/waitlist-confirmation` | Shown after a successful waitlist sign-up (not indexed) |
+| any other path | 404 page (not indexed) |
 
 ## Project layout
 
 ```
-src/
-  pages/            one file per page, starting with an @meta comment (title, description, nav)
-  partials/         layout, header, footer, overlays and shared mock-ups
-  assets/css/       styles.css (design tokens at the top)
-  assets/js/        config.js (edit before launch) and main.js (behaviour)
-  assets/fonts/     self-hosted Inter (SIL Open Font License)
-  assets/img/       logo and icons
-  site.config.json  site URL and draft-notice switch
-scripts/
-  build.mjs         builds src/ into dist/; --check runs the content and link checks
-  icons.mjs         icon paths used by {{icon:name}}
-  serve.mjs         local preview server
-emails/             waitlist confirmation email (HTML and plain text)
-design/             the three-layout design exploration
+app/                  routes, root layout, globals.css (design tokens), sitemap, robots, icons
+app/api/forms/[kind]  form endpoint for waitlist, contact and careers
+components/           server components: sections, mock-ups, legal renderer, UI primitives
+components/client/    interactive parts: header, waitlist panel, forms, cookie consent, toast
+content/              copy shared across pages: solutions, plans, FAQs, workflow steps
+lib/                  form rules, submission handling, site settings, icons, metadata
+emails/               waitlist confirmation email (HTML and plain text)
+scripts/              content check
+design/               the three-layout design exploration
 ```
 
-Template syntax in pages and partials: `{{> partial}}`, `{{icon:name}}`, `{{base}}` and `{{year}}`.
-Text in square brackets such as `[LEGAL ENTITY NAME]` is highlighted automatically so unfinished values
-stay visible.
+Design tokens live in `app/globals.css` under `@theme`. The `dk` class re-themes any block with the
+system's dark tokens, which is how the product frames and closing bands are drawn.
+
+Text in square brackets such as `[LEGAL ENTITY NAME]` is shown highlighted (the `Ph` component) so
+unfinished values stay visible.
 
 ## Forms
 
-The waitlist (panel on every page, and the form at the foot of the home page), contact and careers forms
-validate in the browser with the messages from the content brief, then POST JSON to the endpoints set in
-`src/assets/js/config.js`.
+The waitlist (panel on every page and the form at the foot of the home page), contact and careers forms
+share one set of rules in `lib/forms.ts`. The browser uses them for instant messages and the API route
+checks them again on the server.
 
-- A form whose endpoint is empty runs in **preview mode**. It simulates success after a short delay,
-  sends nothing and logs a notice in the browser console. Waitlist duplicates are detected in the
-  browser so the duplicate message can be reviewed.
-- Endpoints should return a 2xx status on success and `409` when a waitlist email already exists.
-- Each payload includes the consent wording shown to the person, the page and a timestamp, to support
-  consent records.
-- Each form has a hidden honeypot field (`website`). Submissions that fill it are dropped quietly.
+- With no webhook set, a form runs in **preview mode**: the server validates the submission, logs a notice
+  and returns success without storing or sending anything. Waitlist duplicates are remembered in memory
+  per server instance, so the duplicate message can be reviewed.
+- With a webhook set, the server posts the submission as JSON. The payload includes the consent wording
+  shown to the person, the page and a timestamp. A `409` from the webhook shows the duplicate message.
+- A hidden honeypot field (`website`) quietly drops automated submissions.
 
 ## Cookies and analytics
 
-No analytics or other optional technology is included. Consent choices are stored in `localStorage`
-under `sr-consent`, which is strictly necessary for remembering the choice. To add analytics, set
-`loadAnalytics` in `config.js` to a function that loads the script. It runs only after the visitor has
-accepted analytics, and a `sr:consent` event fires on the document whenever consent is applied.
-Complete the cookie table in `src/pages/cookies.html` from a scan of the finished site.
+No analytics or other optional technology is included. Consent is stored in `localStorage` under
+`sr-consent`. To add analytics, put the loading code in `lib/analytics.ts`. It runs only after the visitor
+accepts analytics, and a `sr:consent` event fires on the document whenever consent is applied. Complete the
+cookie table in `app/cookies/page.tsx` from a scan of the finished site.
 
 ## Before launch
 
-1. Replace every bracketed placeholder in `src/` (search for `[`). They cover the legal entity, addresses,
+1. Replace every bracketed placeholder (search the code for `[`), including the legal entity, addresses,
    contact emails, processors, retention periods, lawful bases, effective date and final domain.
 2. Have the Privacy Policy, Cookie Policy and Terms of Use reviewed.
 3. Confirm the supported export formats on the Product page.
-4. Set the form endpoints and `contactEmail` in `src/assets/js/config.js`.
-5. Set `siteUrl` in `src/site.config.json` to add canonical URLs and generate `sitemap.xml`.
-6. Set `showDraftNotices` to `false` to remove the draft banners and `[CONFIRM ...]` notes.
-7. Run `npm run check`.
+4. Set the environment variables above, including the form webhooks.
+5. Set `NEXT_PUBLIC_SHOW_DRAFT_NOTICES=false`.
+6. Run `npm run check` and `npm run build`.

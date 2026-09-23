@@ -1,14 +1,30 @@
 {
   "name": "siteresolve-website",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "SiteResolve marketing website (Record layout). Static HTML, CSS and JavaScript with a zero-dependency build.",
-  "type": "module",
-  "engines": { "node": ">=18" },
+  "description": "SiteResolve marketing website (Record layout), built with Next.js and Tailwind CSS.",
+  "engines": {
+    "node": ">=20.9"
+  },
   "scripts": {
-    "build": "node scripts/build.mjs",
-    "check": "node scripts/build.mjs --check",
-    "serve": "node scripts/serve.mjs",
-    "dev": "node scripts/build.mjs && node scripts/serve.mjs"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "check": "node scripts/check-content.mjs && tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2"
   }
 }
