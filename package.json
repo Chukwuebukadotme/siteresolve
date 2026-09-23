@@ -1,0 +1,14 @@
+{
+  "name": "siteresolve-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SiteResolve marketing website (Record layout). Static HTML, CSS and JavaScript with a zero-dependency build.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check",
+    "serve": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs"
+  }
+}

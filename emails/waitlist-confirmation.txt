@@ -1,0 +1,20 @@
+Subject: You are on the SiteResolve waitlist
+Preheader: Your SiteResolve waitlist registration has been received.
+
+Hello [FIRST NAME OR "there"],
+
+Thank you for joining the SiteResolve waitlist.
+
+SiteResolve is focused on helping construction and property teams report, assign, resolve and verify defects in one connected workflow.
+
+We will send you relevant product updates and information about access.
+
+You can unsubscribe at any time using the link included in our emails.
+
+SiteResolve
+
+---
+You received this email because you joined the SiteResolve waitlist.
+Unsubscribe: [UNSUBSCRIBE LINK]
+Privacy Policy: [FINAL DOMAIN]/privacy
+Visit SiteResolve: [FINAL DOMAIN]

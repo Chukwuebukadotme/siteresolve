@@ -1,0 +1,51 @@
+<dialog class="drawer" id="waitlist-dialog" aria-labelledby="wl-title">
+<div class="drawer-h"><h2 class="h3" id="wl-title">Join the SiteResolve waitlist</h2><button type="button" class="icon-btn" data-close-dialog aria-label="Close waitlist form">{{icon:close}}</button></div>
+<form class="drawer-form" data-form="waitlist" data-success="redirect" novalidate>
+<div class="drawer-b">
+<p class="muted">Receive product updates and information about access. You can also tell us how your team currently manages defects.</p>
+<div data-status></div>
+<div class="field"><label class="field-l" for="wl-email">Work email</label><input class="inp" id="wl-email" name="email" type="email" autocomplete="email" spellcheck="false" placeholder="name@company.co.uk" required data-validate="email" data-error="Enter a valid work email address."></div>
+<div class="field"><label class="field-l" for="wl-name">Name<span class="opt">Optional</span></label><input class="inp" id="wl-name" name="name" type="text" autocomplete="name"></div>
+<div class="form-2">
+<div class="field"><label class="field-l" for="wl-company">Company<span class="opt">Optional</span></label><input class="inp" id="wl-company" name="company" type="text" autocomplete="organization"></div>
+<div class="field"><label class="field-l" for="wl-role">Role<span class="opt">Optional</span></label><input class="inp" id="wl-role" name="role" type="text" autocomplete="organization-title"></div>
+</div>
+<div class="field"><label class="field-l" for="wl-industry">Industry<span class="opt">Optional</span></label><div class="sel"><select class="inp" id="wl-industry" name="industry"><option value="">Select an option</option><option>Construction</option><option>Property management</option><option>Facilities management</option><option>Maintenance</option><option>Inspections</option><option>Independent contractor</option><option>Other</option></select>{{icon:chev}}</div></div>
+<div class="field"><label class="field-l" for="wl-size">Organisation size<span class="opt">Optional</span></label><div class="sel"><select class="inp" id="wl-size" name="organisationSize"><option value="">Select an option</option><option>Independent</option><option>2 to 10 people</option><option>11 to 50 people</option><option>51 to 250 people</option><option>More than 250 people</option><option>Prefer not to say</option></select>{{icon:chev}}</div></div>
+<div class="field"><label class="field-l" for="wl-process">How do you currently manage defects?<span class="opt">Optional</span></label><div class="sel"><select class="inp" id="wl-process" name="currentProcess"><option value="">Select an option</option><option>Spreadsheets</option><option>Email</option><option>Messaging applications</option><option>Construction-management software</option><option>Property-management software</option><option>Maintenance software</option><option>Paper forms</option><option>A combination of tools</option><option>Other</option></select>{{icon:chev}}</div></div>
+<div class="field">
+<label class="chk"><input type="checkbox" id="wl-consent" name="consent" value="yes" required data-validate="checked" data-error="Confirm that you agree to receive product updates by email."><span>I agree to receive SiteResolve product updates by email. I can unsubscribe at any time.</span></label>
+<p class="form-note">We use your information as explained in our <a href="{{base}}privacy.html">Privacy Policy</a>.</p>
+</div>
+<div class="vh" aria-hidden="true"><label for="wl-website">Leave this field empty</label><input id="wl-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+</div>
+<div class="drawer-f"><button type="submit" class="btn btn-primary btn-block" data-loading-label="Joining the waitlist">Join the waitlist</button></div>
+</form>
+</dialog>
+
+<dialog class="modal" id="cookie-dialog" aria-labelledby="ck-title">
+<form method="dialog" data-cookie-form>
+<div class="modal-h"><h2 class="h3" id="ck-title">Cookie settings</h2><button type="button" class="icon-btn" data-close-dialog aria-label="Close cookie settings">{{icon:close}}</button></div>
+<div class="modal-b">
+<p class="muted">You can accept optional cookies, reject optional cookies or manage individual categories. You can change your selection at any time through Cookie settings in the website footer.</p>
+<ul class="ck-cats">
+<li class="ck-cat"><div class="ck-row"><h3 class="label">Strictly necessary</h3><span class="st st-closed">Always active</span></div><p>These technologies are required for website functions such as security, form handling and remembering cookie choices. They cannot be disabled through the SiteResolve cookie controls.</p></li>
+<li class="ck-cat"><label class="chk"><input type="checkbox" name="preferences"><span>Preferences</span></label><p>These technologies remember optional choices such as display or interface preferences.</p><!-- draft-notice --><p>[CONFIRM WHETHER PREFERENCE COOKIES ARE USED]</p><!-- /draft-notice --></li>
+<li class="ck-cat"><label class="chk"><input type="checkbox" name="analytics"><span>Analytics</span></label><p>These technologies help us understand which pages are visited and how the website is used.</p><!-- draft-notice --><p>[CONFIRM ANALYTICS PROVIDER AND CONFIGURATION]</p><!-- /draft-notice --></li>
+</ul>
+</div>
+<div class="modal-f"><button type="button" class="btn btn-secondary" data-consent="reject">Reject optional cookies</button><button type="button" class="btn btn-primary" data-consent="save">Save cookie choices</button></div>
+</form>
+</dialog>
+
+<section class="ck" id="cookie-banner" aria-labelledby="ck-h" hidden>
+<h2 class="ck-h" id="ck-h">Cookie choices</h2>
+<p class="ck-p">SiteResolve uses strictly necessary cookies to operate this website. Optional cookies are used only if you accept them. Read our <a href="{{base}}cookies.html">Cookie Policy</a>.</p>
+<div class="ck-actions">
+<button type="button" class="btn btn-secondary" data-consent="accept">Accept optional cookies</button>
+<button type="button" class="btn btn-secondary" data-consent="reject">Reject optional cookies</button>
+<button type="button" class="btn btn-ghost" data-open-cookies aria-haspopup="dialog">Manage cookies</button>
+</div>
+</section>
+
+<div class="toast-region" role="status" aria-live="polite" data-toast-region></div>
