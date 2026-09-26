@@ -1,5 +1,5 @@
 /* Representative product views. All data shown here is demonstration data and is labelled as such. */
-import Image from 'next/image';
+import { LogoMark } from './logo';
 import type { ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 import type { IconName } from '@/lib/icons';
@@ -13,7 +13,7 @@ export function ProductFrame({ label, name, className, children }: { label: stri
         <span className="inline-flex items-center gap-2 text-[0.8125rem] font-semibold">
           {name ?? (
             <>
-              <Image src="/logo-white.png" alt="" width={20} height={12} className="h-3 w-auto" />
+              <LogoMark className="size-4" />
               SiteResolve
             </>
           )}

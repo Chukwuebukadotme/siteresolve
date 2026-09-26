@@ -15,6 +15,7 @@
   --color-line: #d5dee8;
   --color-line-strong: #7e93ae;
   --color-brand: #236cff;
+  --color-logo-tick: #236cff;
   --color-brand-hover: #1957d6;
   --color-brand-active: #154bb8;
   --color-brand-subtle: #eaf1ff;
@@ -76,6 +77,7 @@
 @custom-variant dk (&:where(.dk, .dk *));
 
 @utility dk {
+  --color-logo-tick: #5b93ff;
   --color-surface-100: #08111f;
   --color-surface-200: #101b2e;
   --color-surface-300: #16223a;

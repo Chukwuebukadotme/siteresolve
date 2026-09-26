@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { LogoMark } from '../logo';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
@@ -19,7 +19,7 @@ export const primaryNav = [
 export function Brand() {
   return (
     <Link href="/" className="inline-flex min-h-11 shrink-0 items-center gap-2.5 text-ink no-underline hover:text-ink">
-      <Image src="/logo-ink.png" alt="" width={34} height={20} className="h-5 w-auto" priority />
+      <LogoMark className="size-[26px]" />
       <span className="text-[1.0625rem] font-bold tracking-[-0.015em]">SiteResolve</span>
     </Link>
   );
