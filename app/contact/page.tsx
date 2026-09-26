@@ -22,7 +22,7 @@ export default function ContactPage() {
           <Suspense>
             <ContactForm />
           </Suspense>
-          <aside aria-label="Other contact details" className="flex flex-col gap-6 rounded-xl bg-surface-200 p-6">
+          <div className="flex flex-col gap-6 rounded-xl bg-surface-200 p-6">
             <div className="flex flex-col gap-1.5"><h2 className="text-sm font-semibold">Email</h2><p><Ph>{site.contactEmail}</Ph></p></div>
             <div className="flex flex-col gap-1.5"><h2 className="text-sm font-semibold">Privacy questions</h2><p><Ph>[PRIVACY CONTACT EMAIL]</Ph></p></div>
             <div className="flex flex-col gap-1.5">
@@ -30,7 +30,7 @@ export default function ContactPage() {
               <p className="text-ink-2">Join the waitlist to receive product updates and information about access.</p>
               <p><WaitlistLink className={buttonClass('secondary')}>Join the waitlist</WaitlistLink></p>
             </div>
-          </aside>
+          </div>
         </div>
       </section>
     </>

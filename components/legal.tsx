@@ -15,22 +15,18 @@ export function LegalDocument({ title, draftNote, sections }: { title: string; d
         </header>
         <nav aria-label="On this page" className="flex flex-col gap-2 rounded-xl bg-surface-200 p-6">
           <p className="text-sm font-semibold">On this page</p>
-          <ol className="grid gap-x-6 md:grid-cols-2">
+          <ul className="grid gap-x-6 md:grid-cols-2">
             {sections.map((s, i) => (
               <li key={s.title}>
-                <a href={`#s${i + 1}`} className="flex min-h-9 items-center gap-2 text-sm leading-snug text-ink-2 no-underline hover:text-link hover:underline">
-                  <span className="w-5 shrink-0 font-mono text-xs">{i + 1}</span>{s.title}
-                </a>
+                <a href={`#s${i + 1}`} className="flex min-h-9 items-center text-sm leading-snug text-ink-2 no-underline hover:text-link hover:underline">{s.title}</a>
               </li>
             ))}
-          </ol>
+          </ul>
         </nav>
         <article className="flex flex-col gap-10">
           {sections.map((s, i) => (
             <section key={s.title} id={`s${i + 1}`} aria-labelledby={`s${i + 1}-h`} className="flex scroll-mt-26 flex-col gap-3.5 [&_p]:max-w-[68ch]">
-              <h2 id={`s${i + 1}-h`} className="flex items-baseline gap-3 text-xl leading-tight font-semibold">
-                <span className="font-mono text-sm font-medium text-ink-2">{i + 1}.</span>{s.title}
-              </h2>
+              <h2 id={`s${i + 1}-h`} className="text-xl leading-tight font-semibold">{s.title}</h2>
               {s.body}
             </section>
           ))}

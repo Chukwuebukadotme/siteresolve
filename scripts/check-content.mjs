@@ -4,7 +4,11 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, extname } from 'node:path';
 
 const roots = ['app', 'components', 'content', 'lib', 'emails'];
-const banned = [/—/, /\brevolutionary\b/i, /game-changing/i, /world-class/i, /next-generation/i, /industry-leading/i, /most popular/i];
+const banned = [
+  /—/, /\brevolutionary\b/i, /game-changing/i, /world-class/i, /next-generation/i, /industry-leading/i, /most popular/i,
+  /\bseamless(ly)?\b/i, /\bstreamline/i, /\bempower/i, /\bunlock/i, /\belevate/i, /\bleverage\b/i, /cutting-edge/i,
+  /\bnot just\b/i, /\bwhether you/i, /one clear workflow/i
+];
 const problems = [];
 
 function walk(dir) {

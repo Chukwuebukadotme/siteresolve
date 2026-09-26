@@ -25,7 +25,7 @@ environment variables in the project:
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Final domain without a trailing slash. Enables canonical links, Open Graph URLs and `sitemap.xml`. |
+| `NEXT_PUBLIC_SITE_URL` | Final domain without a trailing slash. Enables canonical links, `sitemap.xml` and absolute links to the social sharing image. |
 | `NEXT_PUBLIC_SHOW_DRAFT_NOTICES` | Set to `false` to hide the draft banners and `[CONFIRM ...]` notes once content is final. |
 | `WAITLIST_WEBHOOK_URL`, `CONTACT_WEBHOOK_URL`, `CAREERS_WEBHOOK_URL` | Where each form's submissions are sent. |
 
@@ -80,6 +80,13 @@ responsive widths; the home page hero is preloaded and the rest load lazily.
 | Product | Assign (03), work from the site or the office (07) |
 | Solutions | Construction (04), facilities management (06), inspections (05) |
 | About | Why SiteResolve exists (05) |
+
+## Logo and sharing image
+
+The logo symbol is `LogoMark` in `components/logo.tsx`: viewfinder corners in the text colour around a
+blue verification tick. The browser tab icon (`app/icon.png`), home screen icon (`app/apple-icon.png`)
+and email logo (`public/email/logo.png`) show it on a navy tile. `public/og-image.jpg` is the 1200 by 630
+image shown when any page is shared; `lib/metadata.ts` attaches it to every page.
 
 ## Pricing
 

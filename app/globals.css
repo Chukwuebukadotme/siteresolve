@@ -138,6 +138,8 @@
     text-rendering: optimizeLegibility;
   }
   a { color: var(--color-link); text-underline-offset: 3px; }
+  /* Links in running text carry no classes; underline them so they are not marked by colour alone. */
+  a:not([class]) { text-decoration: underline; }
   :focus-visible { outline: 3px solid var(--color-brand); outline-offset: 2px; }
   h1, h2, h3 { text-wrap: balance; }
   dialog::backdrop { background: var(--color-scrim); }

@@ -2,10 +2,7 @@ import type { ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 import { Eyebrow, Icon } from './ui';
 
-/**
- * A numbered "record" section: a running number in the left column, content on the right.
- * Numbers come from a CSS counter reset on <main>, so sections can be added or reordered freely.
- */
+/** A page section: optional eyebrow, heading and introduction, then its content. */
 export function Section({
   id, title, eyebrow, intro, dark, className, children
 }: {
@@ -14,14 +11,11 @@ export function Section({
   const headingId = `${id}-h`;
   return (
     <section id={id} aria-labelledby={headingId} className={cn('py-20 md:py-30', dark ? 'dk' : 'sec border-line [.sec+&]:border-t', className)}>
-      <div className="wrap grid gap-x-6 gap-y-6 md:grid-cols-[56px_minmax(0,1fr)] lg:grid-cols-[88px_minmax(0,1fr)] lg:gap-x-14">
-        <span aria-hidden="true" className="w-12 self-start border-t-2 border-ink pt-3.5 font-mono text-sm font-semibold text-ink before:[counter-increment:sec] before:content-[counter(sec,decimal-leading-zero)] md:w-auto" />
-        <div className="flex min-w-0 flex-col gap-8">
-          {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-          <h2 id={headingId} className="max-w-[24ch] text-h2">{title}</h2>
-          {intro ? <p className="max-w-[58ch] text-lead text-ink-2">{intro}</p> : null}
-          {children}
-        </div>
+      <div className="wrap flex flex-col gap-8">
+        {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
+        <h2 id={headingId} className="max-w-[24ch] text-h2">{title}</h2>
+        {intro ? <p className="max-w-[58ch] text-lead text-ink-2">{intro}</p> : null}
+        {children}
       </div>
     </section>
   );

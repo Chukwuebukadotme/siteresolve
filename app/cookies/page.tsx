@@ -35,7 +35,7 @@ export default function CookiesPage() {
           <P>SiteResolve does not use advertising cookies unless this policy and the consent controls are updated before those technologies are introduced.</P>
         </> },
         { title: 'Cookies used', body: (
-          <div className="overflow-x-auto rounded-lg border border-line">
+          <div tabIndex={0} role="region" aria-label="Cookies used, scrolls sideways" className="overflow-x-auto rounded-lg border border-line focus-visible:outline-2 focus-visible:outline-brand">
             <table className="w-full min-w-[640px] border-collapse text-sm">
               <caption className="sr-only">Cookies used</caption>
               <thead>

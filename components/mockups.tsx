@@ -221,7 +221,7 @@ function MockValue({ row }: { row: MockRow }) {
 }
 
 /** A single-task product screen, used for the workflow steps and capability sections. */
-export function TaskMock({ title, rows, actions, decision }: { title: string; rows: MockRow[]; actions: Array<{ label: string; variant?: 'primary' | 'secondary' | 'danger' }>; decision?: boolean }) {
+export function TaskMock({ issue = { ref: 'SR-1842', title: 'Fire door does not close fully' }, title, rows, actions, decision }: { issue?: { ref: string; title: string }; title: string; rows: MockRow[]; actions: Array<{ label: string; variant?: 'primary' | 'secondary' | 'danger' }>; decision?: boolean }) {
   return (
     <figure className="@container m-0 max-w-[760px] overflow-hidden rounded-xl border border-line bg-surface-100 text-left text-sm shadow-raised">
       <figcaption className="sr-only">{title} interface shown with demonstration data</figcaption>
@@ -231,8 +231,8 @@ export function TaskMock({ title, rows, actions, decision }: { title: string; ro
       </div>
       <div className="flex flex-col gap-3 p-4">
         <p className="flex flex-wrap items-baseline gap-2.5 border-b border-line pb-3 font-semibold">
-          <span className="font-mono text-xs font-medium text-ink-2">SR-1842</span>
-          <span>Fire door does not close fully</span>
+          <span className="font-mono text-xs font-medium text-ink-2">{issue.ref}</span>
+          <span>{issue.title}</span>
         </p>
         {rows.map((row) => (
           <div key={row.label} className="grid grid-cols-[148px_minmax(0,1fr)] items-center gap-3 @max-[380px]:grid-cols-1 @max-[380px]:gap-1.5">

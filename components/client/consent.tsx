@@ -5,7 +5,6 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState, ty
 import { loadAnalytics } from '@/lib/analytics';
 import { buttonClass, DraftOnly, Icon, Ph, StatusLabel } from '../ui';
 import { Dialog } from './dialog';
-import { useToast } from './toast';
 
 type Consent = { version: number; preferences: boolean; analytics: boolean; updated: string };
 const STORAGE_KEY = 'sr-consent';
@@ -23,7 +22,6 @@ function readConsent(): Consent | null {
 const ConsentContext = createContext<{ openSettings: () => void }>({ openSettings: () => {} });
 
 export function ConsentProvider({ children }: { children: ReactNode }) {
-  const toast = useToast();
   const [consent, setConsent] = useState<Consent | null>(null);
   const [banner, setBanner] = useState(false);
   const [open, setOpen] = useState(false);
@@ -59,7 +57,6 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
     setBanner(false);
     setOpen(false);
     apply(value);
-    toast({ title: 'Changes saved.', body: 'Your update has been recorded.' });
   };
 
   const openSettings = useCallback(() => {

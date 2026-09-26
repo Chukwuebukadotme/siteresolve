@@ -36,7 +36,6 @@ export default function PricingPage() {
           {plans.map((plan) => (
             <li key={plan.name} className="grid items-start gap-5 border-t border-line py-10 last:border-b lg:grid-cols-[minmax(0,4fr)_minmax(0,5fr)_minmax(0,3fr)] lg:gap-8">
               <div className="flex flex-col gap-1.5">
-                <span className="font-mono text-[0.8125rem] text-ink-2">{plan.num}</span>
                 <h2 className="text-[2rem] leading-tight font-semibold tracking-[-0.025em]">{plan.name}</h2>
                 <p className="text-ink-2">{plan.audience}</p>
                 {plan.price ? <p className="mt-3 text-2xl font-semibold tracking-[-0.015em]">{plan.price}</p> : null}
@@ -60,15 +59,14 @@ export default function PricingPage() {
       </section>
 
       <Section id="how-pricing-works" title="How pricing works">
-        <ol className="grid gap-x-6 gap-y-8 md:grid-cols-3">
-          {billing.map(([title, text], i) => (
+        <ul className="grid gap-x-6 gap-y-8 md:grid-cols-3">
+          {billing.map(([title, text]) => (
             <li key={title} className="flex flex-col gap-2.5 border-t-2 border-ink pt-5">
-              <span aria-hidden="true" className="font-mono text-[0.8125rem] font-semibold text-ink-2">{String(i + 1).padStart(2, '0')}</span>
               <h3 className="text-xl leading-tight font-semibold tracking-[-0.015em]">{title}</h3>
               <p className="text-ink-2">{text}</p>
             </li>
           ))}
-        </ol>
+        </ul>
       </Section>
 
       <Section id="pricing-questions" title="Pricing questions">

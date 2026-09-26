@@ -14,7 +14,7 @@ export default function CareersPage() {
   return (
     <>
       <PageHeader eyebrow="Careers" title="Work on practical software for physical sites."
-        lead="SiteResolve is being shaped around the needs of people responsible for finding, assigning and closing defects across construction and property operations." />
+        lead="We are building SiteResolve for the people who find, assign and close defects on construction and property sites." />
 
       <Section id="opportunities" title="Current opportunities">
         <div className="flex flex-col items-center gap-2.5 rounded-lg border border-dashed border-line-strong px-6 py-10 text-center">
@@ -34,7 +34,7 @@ export default function CareersPage() {
       </Section>
 
       <Section id="register" title="Register your interest"
-        intro="If your experience is relevant to SiteResolve, you may send a short introduction for future consideration.">
+        intro="If your experience fits, send a short introduction and we will keep it on file for future roles.">
         <CareersForm />
       </Section>
     </>

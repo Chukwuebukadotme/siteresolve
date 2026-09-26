@@ -24,8 +24,8 @@ const solutionPhotos: Record<string, { photo: PhotoAsset; position?: string }> =
 export default function SolutionsPage() {
   return (
     <>
-      <PageHeader eyebrow="Solutions" title="Defect management shaped around real site responsibilities."
-        lead="Different teams use different terminology, but the underlying work remains consistent. An issue is reported, responsibility is assigned, work is completed and the result is verified.">
+      <PageHeader eyebrow="Solutions" title="How different teams use SiteResolve."
+        lead="A snag on a new build, a leak in a plant room and a failed inspection item follow the same steps. Someone reports it, someone is assigned to fix it, the work is done and someone checks it.">
         <WaitlistLink className={buttonClass('primary')}>Join the waitlist</WaitlistLink>
       </PageHeader>
 
@@ -61,7 +61,7 @@ export default function SolutionsPage() {
         </div>
       </div>
 
-      <CtaBand title="Use one workflow across your sites and teams." text="Join the waitlist and tell us which SiteResolve solution fits your work.">
+      <CtaBand title="Tell us which of these sounds like your team." text="Join the waitlist and tell us about the sites you manage.">
         <WaitlistLink className={buttonClass('primary')}>Join the waitlist</WaitlistLink>
       </CtaBand>
     </>

@@ -13,7 +13,7 @@ import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
   title: 'SiteResolve | Defect management from report to verification',
-  description: 'Report, assign, resolve and verify construction and property defects in one clear workflow with SiteResolve.',
+  description: 'Report construction and property defects on site, assign them, collect repair evidence and sign them off with SiteResolve.',
   path: '/'
 });
 
@@ -43,7 +43,7 @@ const caseStudy = [
   { day: 'Day 1, 09:20', stage: 'Assigned', who: 'Site manager', text: 'Eight minutes later the issue is with Northline Doors, the door subcontractor, due by 21 September with an instruction to adjust the closer.', recorded: 'Assignee, due date, instruction' },
   { day: 'Days 4 to 6', stage: 'Repaired', who: 'Northline Doors', text: 'The technician adjusts the closer and checks the hinges, then uploads photographs of the finished door and submits the repair for review.', recorded: 'Completion notes, 2 photographs' },
   { day: 'Day 7, 10:18', stage: 'Verified', who: 'Site manager', text: 'The site manager compares the before and after photographs, tests the door on site and accepts the repair.', recorded: 'Verification decision' },
-  { day: 'Day 7, 10:19', stage: 'Closed', who: 'Site manager', text: 'The issue closes. The report, repair evidence and sign-off stay together for the handover file.', recorded: 'Complete, dated history' }
+  { day: 'Day 7, 10:19', stage: 'Closed', who: 'Site manager', text: 'The issue closes. The report, repair evidence and sign-off stay together for the handover file.', recorded: 'Full dated history' }
 ];
 
 const caseAnswers: Array<[string, string, string]> = [
@@ -60,7 +60,7 @@ export default function HomePage() {
           <Eyebrow pill>Defect management for construction and property teams</Eyebrow>
           <h1 id="hero-h" className="max-w-[960px] text-display">From defect report to verified resolution.</h1>
           <p className="max-w-[60ch] text-lead text-ink-2">
-            SiteResolve brings reporting, assignment, resolution evidence and verification into one clear workflow. Keep every issue, update and decision connected from the moment a defect is found until the work is approved.
+            Report a defect on site, assign it to the right trade, collect evidence of the repair and sign it off in the same record. Everyone involved can see who owns each issue and what has happened to it.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <WaitlistLink className={buttonClass('primary')}>Join the waitlist</WaitlistLink>
@@ -98,7 +98,7 @@ export default function HomePage() {
         </ul>
       </Section>
 
-      <Section id="how-it-works" eyebrow="How it works" title="Four steps from discovery to closure.">
+      <Section id="how-it-works" eyebrow="How it works" title="How a defect gets closed in SiteResolve.">
         <ol className="grid border-t border-line">
           {homeSteps.map((step, i) => {
             const flip = i % 2 === 1;
@@ -106,15 +106,12 @@ export default function HomePage() {
             return (
               <li key={step.name} className={cn('grid items-start gap-10 border-b border-line py-14 lg:gap-14', flip ? 'lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]' : 'lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]')}>
                 <div className={cn('flex flex-col gap-3 lg:sticky lg:top-28', flip && 'lg:order-2')}>
-                  <p className="flex flex-col text-sm font-semibold text-link">
-                    <span aria-hidden="true" className="mb-3 font-mono text-[3.5rem] leading-none font-medium tracking-[-0.04em] text-ink">{String(i + 1).padStart(2, '0')}</span>
-                    <span>Step {i + 1}: {step.name}</span>
-                  </p>
+                  <p className="text-sm font-semibold text-link">{step.name}</p>
                   <h3 className="text-h3">{step.heading}</h3>
                   <p className="max-w-[52ch] text-ink-2">{step.copy}</p>
                 </div>
                 <PhotoPair photo={visual.photo} frame={visual.frame} position={visual.position} cardSide={flip ? 'right' : 'left'} sizes="(min-width: 1024px) 560px, 100vw">
-                  <TaskMock title={step.title} rows={step.rows} actions={step.actions} decision={step.decision} />
+                  <TaskMock issue={step.issue} title={step.title} rows={step.rows} actions={step.actions} decision={step.decision} />
                 </PhotoPair>
               </li>
             );
@@ -122,12 +119,12 @@ export default function HomePage() {
         </ol>
       </Section>
 
-      <Section id="site-work" eyebrow="Designed for site work" title="Capture the details while they are still clear.">
+      <Section id="site-work" eyebrow="On site" title="Capture the details while they are still clear.">
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
           <div className="flex max-w-[46ch] flex-col gap-8">
             <div className="flex flex-col gap-4 text-lg text-ink-2">
               <p className="text-ink">Use a phone or tablet to record defects at the location where they are found. Add photographs, notes and location details before information is lost or passed between teams.</p>
-              <p>Reporting is designed to keep working without a signal, in a basement or on a remote plot, and to synchronise when a connection returns.</p>
+              <p>Reports save to the phone when there is no signal, in a basement or on a remote plot, and upload when the connection returns.</p>
             </div>
             <ul className="border-t border-line">
               {siteFeatures.map(([icon, label]) => (
@@ -143,8 +140,8 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section id="case-study" eyebrow="Representative scenario" title="One fire door, from inspection to sign-off."
-        intro="A worked example of a single defect moving through SiteResolve over one week. The site, people and company are illustrative. It shows how the product works, not a customer result.">
+      <Section id="case-study" eyebrow="Representative scenario" title="A fire door that would not close."
+        intro="A worked example of one defect over one week. The site, the people and the subcontractor are made up for illustration.">
         <ol className="grid gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-5">
           {caseStudy.map((c) => (
             <li key={c.stage} className="flex flex-col gap-2.5 border-t-2 border-ink pt-4">

@@ -10,7 +10,7 @@ import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
   title: 'Product | SiteResolve defect management',
-  description: 'See how SiteResolve connects defect reporting, assignment, resolution evidence, verification and reporting.',
+  description: 'How SiteResolve handles each defect: reporting on site, assignment, repair evidence, verification and reports.',
   path: '/product'
 });
 
@@ -24,14 +24,14 @@ const roles = ['Reporter', 'Site manager', 'Project manager', 'Contractor', 'Ver
 export default function ProductPage() {
   return (
     <>
-      <PageHeader eyebrow="The SiteResolve platform" title="One workflow for every stage of defect resolution."
-        lead="SiteResolve keeps the original report, responsibility, updates, evidence and final decision connected. Field teams can act quickly while managers retain a complete view of current work.">
+      <PageHeader eyebrow="The SiteResolve platform" title="Report, assign, fix and sign off defects in one place."
+        lead="Each defect has one record holding the original report, who owns it, every update, the repair evidence and the final decision. People on site can report and update quickly, and managers can see where every issue stands.">
         <WaitlistLink className={buttonClass('primary')}>Join the waitlist</WaitlistLink>
         <ButtonLink href="#report" variant="secondary">Explore the workflow</ButtonLink>
       </PageHeader>
 
-      <Section id="overview" title="A shared record from start to finish."
-        intro="Every issue begins with a structured report and remains in one record until it is verified and closed. Permissions determine who can view information and complete each action.">
+      <Section id="overview" title="One record for each defect."
+        intro="Each issue starts as a structured report and stays in the same record until it is verified and closed. Permissions control who can see it and what they can do.">
         <IssuesView />
       </Section>
 
@@ -57,8 +57,8 @@ export default function ProductPage() {
         <OversightDashboard />
       </Section>
 
-      <Section id="reports" title="Prepare records for the people who need them."
-        intro="Create filtered reports for internal reviews, contractor follow-up, client updates and handover documentation.">
+      <Section id="reports" title="Reports for reviews, contractors, clients and handover."
+        intro="Filter issues and export them as a report for an internal review, a contractor, a client update or a handover pack.">
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {reports.map(([icon, label]) => (
             <li key={label} className="flex flex-col gap-2.5 rounded-lg border border-line p-4 leading-snug font-semibold">
@@ -81,7 +81,7 @@ export default function ProductPage() {
       </Section>
 
       <Section id="mobile" title="Work from the site or the office."
-        intro="Responsive workflows support phones, tablets and desktops. Essential reporting and update tasks are designed to remain usable in low-connectivity environments.">
+        intro="SiteResolve works on phones, tablets and desktop computers. Reporting and updates keep working when the signal is weak or missing.">
         <p aria-label="Synchronisation states" className="flex flex-wrap items-center gap-2 text-ink-2">
           <StatusLabel tone="closed">Saved on this device</StatusLabel><Icon name="arrow" className="size-4" />
           <StatusLabel tone="warn">Waiting to synchronise</StatusLabel><Icon name="arrow" className="size-4" />
@@ -92,10 +92,10 @@ export default function ProductPage() {
           className="aspect-[4/5] sm:aspect-[16/9]" />
       </Section>
 
-      <Section id="integrations" title="Connect SiteResolve with the systems around it."
-        intro="SiteResolve uses structured site, issue and user data so confirmed integrations can reduce duplicate entry and keep records aligned." />
+      <Section id="integrations" title="Integrations"
+        intro="Site, issue and user records are stored in a structured form so they can be shared with other systems. Integrations will be listed here once they are confirmed." />
 
-      <CtaBand title="Bring your defect workflow into one system." text="Join the waitlist and tell us how your team currently manages site issues.">
+      <CtaBand title="Be first to hear when SiteResolve opens." text="Join the waitlist and tell us how your team handles site issues today.">
         <WaitlistLink className={buttonClass('primary')}>Join the waitlist</WaitlistLink>
       </CtaBand>
     </>

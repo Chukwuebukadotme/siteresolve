@@ -6,5 +6,5 @@ export const site = {
   /** Show draft notices and [CONFIRM ...] notes. Set NEXT_PUBLIC_SHOW_DRAFT_NOTICES=false once content is final. */
   showDraftNotices: process.env.NEXT_PUBLIC_SHOW_DRAFT_NOTICES !== 'false',
   contactEmail: '[GENERAL CONTACT EMAIL]',
-  statement: 'SiteResolve helps construction and property teams manage defects from first report to verified resolution.'
+  statement: 'SiteResolve helps construction and property teams record defects, get them fixed and check the repairs.'
 };

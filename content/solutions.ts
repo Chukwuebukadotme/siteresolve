@@ -8,7 +8,7 @@ export const solutions: ReadonlyArray<{
     id: 'construction', name: 'Construction', icon: 'hat',
     preview: 'Manage defects, snagging, quality inspections, subcontractor actions and handover records.',
     linkLabel: 'SiteResolve for construction',
-    heading: 'Keep defects, subcontractor actions and handover records connected.',
+    heading: 'Close out snags before handover.',
     copy: 'SiteResolve helps project and quality teams record defects where they are found, assign the relevant trade and confirm that corrective work meets the required standard.',
     useCases: ['Defect and snagging lists', 'Quality inspections', 'Subcontractor actions', 'Pre-handover inspections', 'Client handover issues', 'Warranty defects', 'Evidence and sign-off records'],
     outcome: 'See which items remain open, who owns them and which completed repairs still require verification.',
@@ -21,14 +21,14 @@ export const solutions: ReadonlyArray<{
     heading: 'Manage repairs with a clear history for every property.',
     copy: 'Record issues reported by residents, staff or inspections. Assign internal teams or contractors and keep updates, evidence and decisions attached to the same repair record.',
     useCases: ['Reactive repairs', 'Shared-area defects', 'Contractor instructions', 'Property inspections', 'Owner and manager updates', 'Repair evidence', 'Completion review'],
-    outcome: 'Keep each repair understandable without relying on separate emails, calls and spreadsheets.'
+    outcome: 'See the full story of each repair without searching through emails, calls and spreadsheets.'
   },
   {
     id: 'facilities-management', name: 'Facilities management', icon: 'building',
     preview: 'Track operational issues across buildings, teams and service providers.',
     linkLabel: 'SiteResolve for facilities',
     heading: 'Track operational issues across buildings and service providers.',
-    copy: 'Facilities teams can manage defects across several locations while retaining clear responsibility, deadlines and records for each action.',
+    copy: 'Log faults across several buildings, give each one to an in-house team or a service provider, and keep a dated record of every action.',
     useCases: ['Building defects', 'Workplace issues', 'Multi-site reporting', 'Service-provider actions', 'Safety-related repairs', 'Planned inspections', 'Operational reporting'],
     outcome: 'Review current issues by site, priority, provider and status.'
   },
@@ -36,8 +36,8 @@ export const solutions: ReadonlyArray<{
     id: 'maintenance', name: 'Maintenance', icon: 'wrench',
     preview: 'Move reported faults into assigned work, evidence and verified closure.',
     linkLabel: 'SiteResolve for maintenance',
-    heading: 'Move faults from report to verified completion.',
-    copy: 'Turn reported problems into assigned work with supporting evidence and a clear approval step. Keep recurring issues visible through consistent categories and records.',
+    heading: 'Follow each fault until the repair is checked.',
+    copy: 'Turn a reported fault into assigned work with evidence and an approval step. Consistent categories make repeat faults easy to spot.',
     useCases: ['Reactive maintenance', 'Equipment and asset faults', 'Corrective work', 'Internal maintenance teams', 'External contractor work', 'Completion evidence', 'Recurring-issue review'],
     outcome: 'Keep the fault, repair and final review in one record.'
   },
@@ -46,7 +46,7 @@ export const solutions: ReadonlyArray<{
     preview: 'Turn findings into owned actions and confirm that corrective work has been completed.',
     linkLabel: 'SiteResolve for inspections',
     heading: 'Turn findings into actions that can be followed through.',
-    copy: 'Inspection findings should not stop at the report. SiteResolve connects each finding to an owner, due date, corrective action and verification decision.',
+    copy: 'Each finding gets an owner, a due date, a corrective action and a verification decision, so the work continues after the inspection report is filed.',
     useCases: ['Quality inspections', 'Condition surveys', 'Safety findings', 'Compliance checks', 'Corrective actions', 'Evidence collection', 'Closure reports'],
     outcome: 'See which findings have been addressed and which still require action.'
   }
