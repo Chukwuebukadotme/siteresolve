@@ -18,7 +18,7 @@ export const homeSteps: Array<Step & { name: string; heading: string; copy: stri
     name: 'Assign', heading: 'Give the next action a clear owner.',
     copy: 'Assign the issue to an employee, contractor or subcontractor. Add a due date and keep instructions, files and comments with the record.',
     title: 'Assign issue',
-    rows: [assignee, { label: 'Responsible company', kind: 'text', value: 'Northline Doors, door subcontractor' }, { label: 'Due date', kind: 'text', value: '21 September' }, { label: 'Add instruction', kind: 'text', value: 'Adjust the closer so the door closes fully into the frame.' }],
+    rows: [assignee, { label: 'Due date', kind: 'text', value: '21 September' }, { label: 'Add instruction', kind: 'text', value: 'Adjust the closer so the door closes fully into the frame.' }],
     actions: [{ label: 'Notify assignee' }]
   },
   {

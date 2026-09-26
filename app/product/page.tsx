@@ -1,7 +1,9 @@
 import { WaitlistLink } from '@/components/client/waitlist';
 import { IssuesView, OversightDashboard, TaskMock } from '@/components/mockups';
 import { CtaBand, PageHeader, Section } from '@/components/sections';
-import { buttonClass, ButtonLink, DraftOnly, Icon, Ph, StatusLabel, Ticks } from '@/components/ui';
+import { Photo } from '@/components/photo';
+import { buttonClass, ButtonLink, Icon, StatusLabel, Ticks } from '@/components/ui';
+import { photos } from '@/content/photos';
 import { productCapabilities } from '@/content/workflow';
 import type { IconName } from '@/lib/icons';
 import { pageMetadata } from '@/lib/metadata';
@@ -39,7 +41,14 @@ export default function ProductPage() {
               <p className="max-w-[56ch] text-lg">{c.copy}</p>
               <Ticks items={c.features} className="gap-x-6 sm:grid-cols-2" />
             </div>
-            <TaskMock title={c.title} rows={c.rows} actions={c.actions} />
+            {c.id === 'assign' ? (
+              <div className="grid items-center gap-8 lg:grid-cols-2">
+                <Photo photo={photos.assignOffice} sizes="(min-width: 1024px) 520px, 100vw" className="aspect-[4/3] lg:aspect-[3/2]" position="40% center" />
+                <TaskMock title={c.title} rows={c.rows} actions={c.actions} />
+              </div>
+            ) : (
+              <TaskMock title={c.title} rows={c.rows} actions={c.actions} />
+            )}
           </Section>
       ))}
 
@@ -55,7 +64,6 @@ export default function ProductPage() {
             <li key={label} className="flex flex-col gap-2.5 rounded-lg border border-line p-4 leading-snug font-semibold">
               <Icon name={icon} className="text-link" />
               <span>{label}</span>
-              {label === 'CSV and PDF export' ? <DraftOnly><span className="text-xs font-medium"><Ph>[CONFIRM SUPPORTED EXPORT FORMATS]</Ph></span></DraftOnly> : null}
             </li>
           ))}
         </ul>
@@ -80,6 +88,8 @@ export default function ProductPage() {
           <StatusLabel>Synchronising</StatusLabel><Icon name="arrow" className="size-4" />
           <StatusLabel tone="ok">Synchronised</StatusLabel>
         </p>
+        <Photo photo={photos.offlineUpdate} sizes="(min-width: 1280px) 1060px, 100vw" position="left center" positionLg="center"
+          className="aspect-[4/5] sm:aspect-[16/9]" />
       </Section>
 
       <Section id="integrations" title="Connect SiteResolve with the systems around it."

@@ -1,4 +1,11 @@
-export const plans = [
+/*
+ * SiteResolve is sold as one annual subscription per organisation. To publish a figure or range for a
+ * plan, set its `price` (for example 'From £X a year'); plans without one say how the price is quoted.
+ */
+export const plans: ReadonlyArray<{
+  num: string; name: string; audience: string; price?: string;
+  cta: { label: string; waitlist: boolean }; features: readonly string[];
+}> = [
   {
     num: '01', name: 'Starter', audience: 'For individual contractors and small teams managing a limited number of sites.',
     cta: { label: 'Join the waitlist', waitlist: true },
@@ -14,4 +21,4 @@ export const plans = [
     cta: { label: 'Discuss enterprise access', waitlist: false },
     features: ['Everything in Operations', 'Advanced permissions', 'Organisation-level reporting', 'Custom workflow configuration', 'Integration support', 'Data-management controls', 'Implementation planning', 'Priority support options']
   }
-] as const;
+];

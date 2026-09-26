@@ -1,0 +1,139 @@
+<title>SiteResolve Logo Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #f4f7fb; --panel: #ffffff; --ink: #08111f; --ink-2: #53657e; --line: #d5dee8;
+    --brand: #236cff; --night: #08111f; --night-line: #223350;
+    --m-ink: #08111f; --m-acc: #236cff; --m-tile: #08111f; --m-on-tile: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { color-scheme: dark; --bg: #050b15; --panel: #0d1829; --ink: #eef3fa; --ink-2: #9fb0c6; --line: #223350; }
+  }
+  :root[data-theme="dark"] { color-scheme: dark; --bg: #050b15; --panel: #0d1829; --ink: #eef3fa; --ink-2: #9fb0c6; --line: #223350; }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--ink); font: 16px/1.55 Inter, system-ui, -apple-system, "Segoe UI", sans-serif; padding: 48px 16px 72px; }
+  .wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+  h1 { font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.08; letter-spacing: -0.03em; font-weight: 600; margin: 0; text-wrap: balance; }
+  h2 { font-size: 1.5rem; letter-spacing: -0.015em; font-weight: 600; margin: 0; }
+  p { margin: 0; }
+  .lead { color: var(--ink-2); font-size: 1.125rem; max-width: 62ch; }
+  .intro { display: flex; flex-direction: column; gap: 14px; }
+  .current { display: flex; align-items: center; gap: 14px; color: var(--ink-2); font-size: 0.9375rem; }
+  .current img { height: 18px; width: auto; background: #fff; padding: 6px 8px; border-radius: 6px; border: 1px solid var(--line); box-sizing: content-box; }
+  .dir { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 28px; display: grid; gap: 28px; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); }
+  .tag { font: 600 0.8125rem/1 ui-monospace, "SF Mono", Menlo, monospace; color: var(--brand); letter-spacing: 0.04em; }
+  .copy { display: flex; flex-direction: column; gap: 12px; }
+  .copy p { color: var(--ink-2); max-width: 52ch; }
+  .copy ul { margin: 4px 0 0; padding-left: 18px; color: var(--ink-2); display: flex; flex-direction: column; gap: 4px; }
+  .copy li strong { color: var(--ink); font-weight: 600; }
+  .specimens { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sp { border-radius: 12px; min-height: 170px; display: grid; place-items: center; }
+  .sp.light { background: #ffffff; border: 1px solid #d5dee8; --m-ink: #08111f; --m-acc: #236cff; --m-tile: #08111f; --m-on-tile: #ffffff; }
+  .sp.dark { background: #08111f; --m-ink: #ffffff; --m-acc: #5b93ff; --m-tile: #236cff; --m-on-tile: #ffffff; }
+  .sp svg { width: 96px; height: 96px; }
+  .uses { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; }
+  .use { flex: 1 1 220px; border-radius: 12px; border: 1px solid #d5dee8; background: #ffffff; color: #08111f; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; --m-ink: #08111f; --m-acc: #236cff; --m-tile: #08111f; --m-on-tile: #fff; }
+  .use.night { background: #08111f; border-color: #223350; color: #fff; --m-ink: #fff; --m-acc: #5b93ff; --m-tile: #236cff; }
+  .use small { font-size: 0.75rem; font-weight: 600; color: #53657e; letter-spacing: 0.02em; }
+  .use.night small { color: #9fb0c6; }
+  .lockup { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.0625rem; letter-spacing: -0.015em; }
+  .lockup svg { width: 26px; height: 26px; }
+  .sizes { display: flex; align-items: flex-end; gap: 16px; }
+  .tab { display: inline-flex; align-items: center; gap: 8px; background: #e8edf4; border-radius: 8px 8px 0 0; padding: 7px 12px; font-size: 0.8125rem; color: #08111f; }
+  .appicon { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; background: #08111f; --m-ink: #fff; --m-acc: #5b93ff; --m-tile: #236cff; }
+  .appicon svg { width: 36px; height: 36px; }
+  .appicon.bare { background: none; }
+  .appicon.bare svg { width: 56px; height: 56px; }
+  .next { color: var(--ink-2); }
+  @media (max-width: 760px) { .dir { grid-template-columns: 1fr; padding: 20px; } }
+  .ink { stroke: var(--m-ink); } .acc { stroke: var(--m-acc); }
+  .tile { fill: var(--m-tile); } .on-tile { stroke: var(--m-on-tile); }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark-a" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path class="ink" stroke-width="3.2" d="M27.82 18.08A12 12 0 1 1 22 5.61"/>
+    <path class="acc" stroke-width="3.2" d="M10.5 16 15 20.5 28 7.5"/>
+  </symbol>
+  <symbol id="mark-b" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path class="ink" stroke-width="3" d="M5 11V7.5A2.5 2.5 0 0 1 7.5 5H11M21 5h3.5A2.5 2.5 0 0 1 27 7.5V11M27 21v3.5a2.5 2.5 0 0 1-2.5 2.5H21M11 27H7.5A2.5 2.5 0 0 1 5 24.5V21"/>
+    <path class="acc" stroke-width="3.2" d="M10.75 16.25 14.5 20l7-7.5"/>
+  </symbol>
+  <symbol id="mark-c" viewBox="0 0 32 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect class="tile" width="32" height="32" rx="8" stroke="none"/>
+    <path class="on-tile" stroke-width="2.6" d="M14 9.5h-3.25a3.25 3.25 0 0 0 0 6.5h.5a3.25 3.25 0 0 1 0 6.5H7.5M17.75 22.5v-13h3.75a3.25 3.25 0 0 1 0 6.5h-3.75M21.25 16l3.5 6.5"/>
+  </symbol>
+</svg>
+
+<main class="wrap">
+  <header class="intro">
+    <span class="tag">SITERESOLVE / IDENTITY</span>
+    <h1>Three logo directions</h1>
+    <p class="lead">Each direction is a symbol paired with the SiteResolve wordmark in Inter Bold, the typeface the site already uses. They are shown at display size, in the site header, as a browser tab icon and as an app icon.</p>
+    <p class="current">Current logo for reference: <img alt="Current SR logo" src="data:image/png;base64,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"></p>
+  </header>
+
+  <section class="dir" aria-labelledby="dir-a">
+    <div class="copy">
+      <span class="tag">DIRECTION A</span>
+      <h2 id="dir-a">Closure</h2>
+      <p>A ring that is not quite closed, with a tick breaking out through the gap. It reads as a defect being closed off, and the tick is the one place the blue appears.</p>
+      <ul><li><strong>Strength:</strong> says what the product does, verification, without words.</li><li><strong>Risk:</strong> ticks are common in task apps, so the ring carries the identity.</li></ul>
+    </div>
+    <div class="specimens">
+      <div class="sp light"><svg role="img" aria-label="Closure symbol on white"><use href="#mark-a"/></svg></div>
+      <div class="sp dark"><svg role="img" aria-label="Closure symbol on navy"><use href="#mark-a"/></svg></div>
+    </div>
+    <div class="uses">
+      <div class="use"><small>Site header</small><span class="lockup"><svg aria-hidden="true"><use href="#mark-a"/></svg>SiteResolve</span></div>
+      <div class="use night"><small>Footer on navy</small><span class="lockup"><svg aria-hidden="true"><use href="#mark-a"/></svg>SiteResolve</span></div>
+      <div class="use"><small>Browser tab, 16 and 32 px</small>
+        <span class="sizes"><span class="tab"><svg width="16" height="16" aria-hidden="true"><use href="#mark-a"/></svg>SiteResolve</span><svg width="32" height="32" aria-hidden="true"><use href="#mark-a"/></svg></span></div>
+      <div class="use"><small>App icon</small><span class="appicon"><svg aria-hidden="true"><use href="#mark-a"/></svg></span></div>
+    </div>
+  </section>
+
+  <section class="dir" aria-labelledby="dir-b">
+    <div class="copy">
+      <span class="tag">DIRECTION B</span>
+      <h2 id="dir-b">Evidence</h2>
+      <p>Camera viewfinder corners around a tick. It points to the moment on site when someone photographs a defect, and to the proof that it was put right.</p>
+      <ul><li><strong>Strength:</strong> the most site-specific of the three, tied to photographic evidence.</li><li><strong>Risk:</strong> the corners get fine at 16 pixels, so the favicon may need a heavier cut.</li></ul>
+    </div>
+    <div class="specimens">
+      <div class="sp light"><svg role="img" aria-label="Evidence symbol on white"><use href="#mark-b"/></svg></div>
+      <div class="sp dark"><svg role="img" aria-label="Evidence symbol on navy"><use href="#mark-b"/></svg></div>
+    </div>
+    <div class="uses">
+      <div class="use"><small>Site header</small><span class="lockup"><svg aria-hidden="true"><use href="#mark-b"/></svg>SiteResolve</span></div>
+      <div class="use night"><small>Footer on navy</small><span class="lockup"><svg aria-hidden="true"><use href="#mark-b"/></svg>SiteResolve</span></div>
+      <div class="use"><small>Browser tab, 16 and 32 px</small>
+        <span class="sizes"><span class="tab"><svg width="16" height="16" aria-hidden="true"><use href="#mark-b"/></svg>SiteResolve</span><svg width="32" height="32" aria-hidden="true"><use href="#mark-b"/></svg></span></div>
+      <div class="use"><small>App icon</small><span class="appicon"><svg aria-hidden="true"><use href="#mark-b"/></svg></span></div>
+    </div>
+  </section>
+
+  <section class="dir" aria-labelledby="dir-c">
+    <div class="copy">
+      <span class="tag">DIRECTION C</span>
+      <h2 id="dir-c">Monogram</h2>
+      <p>The SR letters redrawn from one stroke weight on a solid tile, like lettering on a drawing sheet. It keeps the initials people may already recognise from the current logo.</p>
+      <ul><li><strong>Strength:</strong> the least change, and the tile makes a strong app icon.</li><li><strong>Risk:</strong> initials alone say little about the product.</li></ul>
+    </div>
+    <div class="specimens">
+      <div class="sp light"><svg role="img" aria-label="Monogram symbol on white"><use href="#mark-c"/></svg></div>
+      <div class="sp dark"><svg role="img" aria-label="Monogram symbol on navy"><use href="#mark-c"/></svg></div>
+    </div>
+    <div class="uses">
+      <div class="use"><small>Site header</small><span class="lockup"><svg aria-hidden="true"><use href="#mark-c"/></svg>SiteResolve</span></div>
+      <div class="use night"><small>Footer on navy</small><span class="lockup"><svg aria-hidden="true"><use href="#mark-c"/></svg>SiteResolve</span></div>
+      <div class="use"><small>Browser tab, 16 and 32 px</small>
+        <span class="sizes"><span class="tab"><svg width="16" height="16" aria-hidden="true"><use href="#mark-c"/></svg>SiteResolve</span><svg width="32" height="32" aria-hidden="true"><use href="#mark-c"/></svg></span></div>
+      <div class="use"><small>App icon</small><span class="appicon bare"><svg aria-hidden="true"><use href="#mark-c"/></svg></span></div>
+    </div>
+  </section>
+
+  <p class="next">Pick A, B or C and it replaces the current logo in the header, footer, product frames, browser tab icon and app icon.</p>
+</main>

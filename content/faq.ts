@@ -11,6 +11,7 @@ export const homeFaq = [
 ] as const;
 
 export const pricingFaq = [
+  { q: 'How is SiteResolve billed?', a: 'As an annual subscription for your organisation. One plan covers everyone who works in SiteResolve for you, and the price reflects the tier and the number of users and active sites it covers.' },
   { q: 'Is there a plan for independent contractors?', a: 'The Starter plan is intended for individual contractors and small teams that need a structured way to manage defects.' },
   { q: 'Can external contractors be included?', a: 'Operations and Enterprise plans are intended to support controlled access for external contractors and service providers.' },
   { q: 'Are there limits on sites or projects?', a: 'Plan limits will be confirmed before public pricing is introduced.' },

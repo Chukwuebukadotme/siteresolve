@@ -47,6 +47,7 @@ environment variables in the project:
 ## Project layout
 
 ```
+assets/photos/        worksite photographs: PNG masters, graded web versions and USAGE.md
 app/                  routes, root layout, globals.css (design tokens), sitemap, robots, icons
 app/api/forms/[kind]  form endpoint for waitlist, contact and careers
 components/           server components: sections, mock-ups, legal renderer, UI primitives
@@ -63,6 +64,27 @@ system's dark tokens, which is how the product frames and closing bands are draw
 
 Text in square brackets such as `[LEGAL ENTITY NAME]` is shown highlighted (the `Ph` component) so
 unfinished values stay visible.
+
+## Photographs
+
+Seven worksite photographs live in `assets/photos`. The PNG files in `masters/` are the originals.
+`npm run photos` (`scripts/grade-photos.mjs`) applies the colour treatment from `assets/photos/USAGE.md`
+(a slightly cooler white balance and about 12 per cent less high-visibility yellow) and writes the `.jpg`
+web versions beside them. `content/photos.ts` lists each photograph with its alt text, and the `Photo` and
+`PhotoPair` components in `components/photo.tsx` crop and place them. Next.js serves AVIF or WebP at
+responsive widths; the home page hero is preloaded and the rest load lazily.
+
+| Page | Photographs |
+| --- | --- |
+| Home | Hero (01), the four workflow steps (02 to 05), site work (07) |
+| Product | Assign (03), work from the site or the office (07) |
+| Solutions | Construction (04), facilities management (06), inspections (05) |
+| About | Why SiteResolve exists (05) |
+
+## Pricing
+
+SiteResolve is presented as one annual subscription per organisation. To publish a figure or range, set
+`price` on the plan in `content/plans.ts` and it appears under the plan name.
 
 ## Forms
 
@@ -89,7 +111,7 @@ cookie table in `app/cookies/page.tsx` from a scan of the finished site.
 1. Replace every bracketed placeholder (search the code for `[`), including the legal entity, addresses,
    contact emails, processors, retention periods, lawful bases, effective date and final domain.
 2. Have the Privacy Policy, Cookie Policy and Terms of Use reviewed.
-3. Confirm the supported export formats on the Product page.
+3. Add annual prices or ranges to `content/plans.ts` when they are set.
 4. Set the environment variables above, including the form webhooks.
 5. Set `NEXT_PUBLIC_SHOW_DRAFT_NOTICES=false`.
 6. Run `npm run check` and `npm run build`.

@@ -1,6 +1,6 @@
 import { WaitlistLink } from '@/components/client/waitlist';
 import { CtaBand, Faq, PageHeader, Section } from '@/components/sections';
-import { buttonClass, ButtonLink } from '@/components/ui';
+import { buttonClass, ButtonLink, Icon } from '@/components/ui';
 import { pricingFaq } from '@/content/faq';
 import { plans } from '@/content/plans';
 import { cn } from '@/lib/cn';
@@ -8,19 +8,30 @@ import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
   title: 'Pricing | SiteResolve',
-  description: 'Compare SiteResolve plans for contractors, operational teams and larger organisations.',
+  description: 'SiteResolve is billed as an annual subscription per organisation. Compare the Starter, Operations and Enterprise plans.',
   path: '/pricing'
 });
+
+const billing: Array<[string, string]> = [
+  ['One subscription per organisation', 'SiteResolve is billed once a year. Everyone who works in SiteResolve for your organisation is covered by the same plan.'],
+  ['The tier sets the controls', 'Starter, Operations and Enterprise differ in permissions, reporting, configuration and support, as listed above.'],
+  ['Your size sets the price', 'Within a tier, the annual price reflects the number of users and active sites. External collaborators, storage and integration needs can also affect it.']
+];
 
 export default function PricingPage() {
   return (
     <>
-      <PageHeader eyebrow="Pricing" title="Choose the level of control your team needs."
-        lead="Plans are based on team size, number of sites and required management controls. Join the waitlist to discuss the right setup for your organisation.">
+      <PageHeader eyebrow="Pricing" title="One annual plan for your whole organisation."
+        lead="SiteResolve is billed as an annual subscription that covers your organisation. Choose the tier that matches the controls you need. The price within it reflects how many users and active sites it covers.">
         <WaitlistLink className={buttonClass('primary')}>Join the waitlist</WaitlistLink>
       </PageHeader>
 
       <section aria-label="Plans" className="py-24">
+        <p className="wrap mb-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.9375rem] font-semibold">
+          <span className="inline-flex items-center gap-2"><Icon name="cal" className="size-[18px] text-link" />Every plan is an annual subscription</span>
+          <span className="inline-flex items-center gap-2"><Icon name="building" className="size-[18px] text-link" />Billed once per organisation</span>
+          <span className="inline-flex items-center gap-2"><Icon name="users" className="size-[18px] text-link" />Priced on users and active sites</span>
+        </p>
         <ul className="wrap grid">
           {plans.map((plan) => (
             <li key={plan.name} className="grid items-start gap-5 border-t border-line py-10 last:border-b lg:grid-cols-[minmax(0,4fr)_minmax(0,5fr)_minmax(0,3fr)] lg:gap-8">
@@ -28,6 +39,7 @@ export default function PricingPage() {
                 <span className="font-mono text-[0.8125rem] text-ink-2">{plan.num}</span>
                 <h2 className="text-[2rem] leading-tight font-semibold tracking-[-0.025em]">{plan.name}</h2>
                 <p className="text-ink-2">{plan.audience}</p>
+                {plan.price ? <p className="mt-3 text-2xl font-semibold tracking-[-0.015em]">{plan.price}</p> : null}
               </div>
               <ul aria-label={`${plan.name} features`} className="grid gap-x-5 gap-y-2.5 sm:grid-cols-2">
                 {plan.features.map((f) => {
@@ -47,8 +59,17 @@ export default function PricingPage() {
         </ul>
       </section>
 
-      <Section id="what-affects-pricing" title="What affects pricing?"
-        intro="Pricing may reflect the number of users, active sites, external collaborators, storage requirements, reporting controls and integration needs." />
+      <Section id="how-pricing-works" title="How pricing works">
+        <ol className="grid gap-x-6 gap-y-8 md:grid-cols-3">
+          {billing.map(([title, text], i) => (
+            <li key={title} className="flex flex-col gap-2.5 border-t-2 border-ink pt-5">
+              <span aria-hidden="true" className="font-mono text-[0.8125rem] font-semibold text-ink-2">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="text-xl leading-tight font-semibold tracking-[-0.015em]">{title}</h3>
+              <p className="text-ink-2">{text}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
 
       <Section id="pricing-questions" title="Pricing questions">
         <Faq items={pricingFaq} />

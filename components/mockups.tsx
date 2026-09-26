@@ -149,7 +149,8 @@ export function DefectSummary() {
   );
 }
 
-export function PortfolioOverview() {
+/** `compact` drops the defect summary panel, for use beside a photograph. */
+export function PortfolioOverview({ compact }: { compact?: boolean }) {
   return (
     <ProductFrame label="Representative SiteResolve portfolio overview shown with demonstration data" className="rounded-2xl border-night-line shadow-hero max-md:rounded-xl">
       <AppShell
@@ -158,10 +159,12 @@ export function PortfolioOverview() {
         tools={<><Tool icon="building" trailing="chev">All sites</Tool><Tool icon="filter">Filter</Tool><Tool icon="export" primary>Export report</Tool></>}
       >
         <Kpis items={[{ label: 'Open defects', value: '18' }, { label: 'Awaiting verification', value: '6' }, { label: 'Overdue', value: '3', overdue: true }, { label: 'Recently resolved', value: '11' }]} />
-        <div className="grid grid-cols-[minmax(0,1fr)_224px] items-start gap-3 @max-[1060px]:grid-cols-1">
-          <IssuesTable />
-          <DefectSummary />
-        </div>
+        {compact ? <IssuesTable /> : (
+          <div className="grid grid-cols-[minmax(0,1fr)_224px] items-start gap-3 @max-[1060px]:grid-cols-1">
+            <IssuesTable />
+            <DefectSummary />
+          </div>
+        )}
       </AppShell>
     </ProductFrame>
   );
@@ -301,10 +304,10 @@ export function IssueRecord() {
   );
 }
 
-export function PhoneMock() {
+export function PhoneMock({ className = 'mx-auto w-[300px]' }: { className?: string }) {
   const field = 'flex min-h-9 items-center rounded-md border border-line-strong bg-surface-300 px-2.5 py-2';
   return (
-    <figure className="m-0 mx-auto w-[300px] max-w-full rounded-[36px] border border-line-strong bg-surface-200 p-2.5 shadow-overlay">
+    <figure className={cn('m-0 max-w-full rounded-[36px] border border-line-strong bg-surface-200 p-2.5 shadow-overlay', className)}>
       <figcaption className="sr-only">Reporting a defect on a phone, shown with demonstration data</figcaption>
       <div className="overflow-hidden rounded-[28px] border border-line bg-surface-100 text-[0.8125rem]">
         <p className="flex items-center gap-2 bg-warn-subtle px-4 py-3 text-xs font-semibold text-warn"><Icon name="offline" className="size-4" />You are offline.</p>

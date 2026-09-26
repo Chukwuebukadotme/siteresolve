@@ -1,6 +1,8 @@
 import { WaitlistLink } from '@/components/client/waitlist';
+import { Photo } from '@/components/photo';
 import { CtaBand, PageHeader, Section } from '@/components/sections';
 import { buttonClass } from '@/components/ui';
+import { photos } from '@/content/photos';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
@@ -25,9 +27,12 @@ export default function AboutPage() {
         lead="SiteResolve is focused on one practical problem: keeping the full path from reported defect to verified resolution clear and accessible." />
 
       <Section id="why" title="Why SiteResolve exists">
-        <div className="flex max-w-[58ch] flex-col gap-4 text-lead text-ink-2">
-          <p>Construction and property teams often manage defects across photographs, calls, emails, messaging applications and spreadsheets. Each tool may hold part of the record, but no single place shows the full state of the issue.</p>
-          <p>SiteResolve is designed to connect the report, responsible parties, corrective work, supporting evidence and final decision.</p>
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-14">
+          <div className="flex max-w-[58ch] flex-col gap-4 text-lead text-ink-2">
+            <p>Construction and property teams often manage defects across photographs, calls, emails, messaging applications and spreadsheets. Each tool may hold part of the record, but no single place shows the full state of the issue.</p>
+            <p>SiteResolve is designed to connect the report, responsible parties, corrective work, supporting evidence and final decision.</p>
+          </div>
+          <Photo photo={photos.verifyDoor} sizes="(min-width: 1024px) 580px, 100vw" className="aspect-[4/5] sm:aspect-[3/2]" position="45% center" />
         </div>
       </Section>
 
