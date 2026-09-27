@@ -57,7 +57,7 @@ export function Header() {
 
   return (
     <header className="pointer-events-none sticky top-0 z-50 px-3 pt-2 md:px-(--gutter) md:pt-3">
-      <div className="pointer-events-auto relative mx-auto flex h-16 max-w-[1120px] items-center justify-between gap-3 rounded-xl border border-line bg-surface-100 pr-2.5 pl-5 shadow-raised lg:gap-6">
+      <div className="pointer-events-auto relative mx-auto flex h-16 max-w-[1120px] items-center justify-between gap-3 rounded-xl border border-line/70 bg-surface-100 pr-2.5 pl-5 shadow-raised supports-[backdrop-filter]:bg-surface-100/75 supports-[backdrop-filter]:backdrop-blur-md supports-[backdrop-filter]:backdrop-saturate-150 lg:gap-6">
         <Brand />
         <nav aria-label="Primary" className="hidden min-w-0 flex-1 justify-center md:flex">
           <ul className="flex items-center gap-0.5">
@@ -66,7 +66,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   aria-current={current(item.href)}
-                  className="inline-flex min-h-11 items-center rounded-md px-2.5 text-sm font-semibold whitespace-nowrap text-ink-2 no-underline transition-colors hover:bg-surface-200 hover:text-link aria-[current=page]:bg-brand-subtle aria-[current=page]:text-ink lg:px-3.5 lg:text-[0.9375rem]"
+                  className="inline-flex min-h-11 items-center rounded-md px-2.5 text-sm font-semibold whitespace-nowrap text-ink/75 no-underline transition-colors hover:bg-surface-200 hover:text-link aria-[current=page]:bg-brand-subtle aria-[current=page]:text-ink lg:px-3.5 lg:text-[0.9375rem]"
                 >
                   {item.label}
                 </Link>
@@ -82,7 +82,7 @@ export function Header() {
             aria-expanded={open}
             aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-md border border-line-strong bg-surface-100 px-3.5 text-[0.9375rem] font-semibold text-ink md:hidden"
+            className="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-md px-3.5 text-[0.9375rem] font-semibold text-ink hover:bg-surface-200 active:bg-surface-300 aria-expanded:bg-surface-200 md:hidden"
           >
             <Icon name={open ? 'close' : 'menu'} />
             <span>Menu</span>
