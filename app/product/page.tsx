@@ -61,7 +61,7 @@ export default function ProductPage() {
         intro="Filter issues and export them as a report for an internal review, a contractor, a client update or a handover pack.">
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {reports.map(([icon, label]) => (
-            <li key={label} className="flex flex-col gap-2.5 rounded-lg border border-line p-4 leading-snug font-semibold">
+            <li key={label} className="tile flex flex-col gap-2.5 p-4 leading-snug font-semibold">
               <Icon name={icon} className="text-link" />
               <span>{label}</span>
             </li>
@@ -73,7 +73,7 @@ export default function ProductPage() {
         intro="Permissions separate reporting, assignment, updating, verification and administration. External organisations can be limited to the issues relevant to their work.">
         <ul aria-label="Role examples" className="flex flex-wrap gap-2">
           {roles.map((role) => (
-            <li key={role} className="inline-flex min-h-10 items-center gap-2 rounded-md border border-line px-3.5 text-[0.9375rem] font-semibold">
+            <li key={role} className="tile inline-flex min-h-10 items-center gap-2 rounded-md px-3.5 text-[0.9375rem] font-semibold">
               <Icon name="user" className="size-[18px] text-link" />{role}
             </li>
           ))}

@@ -107,11 +107,19 @@
   padding-inline: var(--gutter);
 }
 
+/* Soft tile: a tinted, rounded block used instead of divider lines. It flips to white on tinted sections. */
+@utility tile {
+  background-color: var(--tile-bg, var(--color-surface-200));
+  border-radius: var(--radius-xl);
+}
+
 @utility striped {
   background-image: repeating-linear-gradient(-45deg, transparent 0 5px, var(--color-surface-300) 5px 6px);
 }
 
 @layer base {
+  /* Page sections alternate white and pale blue-grey, so no divider lines are needed between them. */
+  main > .sec:nth-child(even of .sec) { background-color: var(--color-surface-200); --tile-bg: var(--color-surface-100); }
   :root {
     --gutter: 48px;
     color-scheme: light;

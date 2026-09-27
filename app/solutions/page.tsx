@@ -33,7 +33,7 @@ export default function SolutionsPage() {
         <SolutionsIndex items={solutions} />
         <div className="flex flex-col">
           {solutions.map((s) => (
-            <section key={s.id} id={s.id} aria-labelledby={`${s.id}-h`} className="grid scroll-mt-26 gap-6 border-b border-line pb-20 mb-20 last:mb-0 last:border-b-0">
+            <section key={s.id} id={s.id} aria-labelledby={`${s.id}-h`} className="grid scroll-mt-26 gap-6 pb-24 last:pb-0">
               <div className={cn('grid items-start gap-8', solutionPhotos[s.id] && 'md:grid-cols-[minmax(0,1fr)_260px] xl:grid-cols-[minmax(0,1fr)_320px]')}>
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-col gap-3">

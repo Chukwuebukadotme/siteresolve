@@ -26,15 +26,15 @@ export default function PricingPage() {
         <WaitlistLink className={buttonClass('primary')}>Join the waitlist</WaitlistLink>
       </PageHeader>
 
-      <section aria-label="Plans" className="py-24">
+      <section aria-label="Plans" className="sec py-20 md:py-24">
         <p className="wrap mb-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.9375rem] font-semibold">
           <span className="inline-flex items-center gap-2"><Icon name="cal" className="size-[18px] text-link" />Every plan is an annual subscription</span>
           <span className="inline-flex items-center gap-2"><Icon name="building" className="size-[18px] text-link" />Billed once per organisation</span>
           <span className="inline-flex items-center gap-2"><Icon name="users" className="size-[18px] text-link" />Priced on users and active sites</span>
         </p>
-        <ul className="wrap grid">
+        <ul className="wrap grid gap-4">
           {plans.map((plan) => (
-            <li key={plan.name} className="grid items-start gap-5 border-t border-line py-10 last:border-b lg:grid-cols-[minmax(0,4fr)_minmax(0,5fr)_minmax(0,3fr)] lg:gap-8">
+            <li key={plan.name} className="tile grid items-start gap-5 p-7 md:p-9 lg:grid-cols-[minmax(0,4fr)_minmax(0,5fr)_minmax(0,3fr)] lg:gap-8">
               <div className="flex flex-col gap-1.5">
                 <h2 className="text-[2rem] leading-tight font-semibold tracking-[-0.025em]">{plan.name}</h2>
                 <p className="text-ink-2">{plan.audience}</p>
@@ -59,9 +59,9 @@ export default function PricingPage() {
       </section>
 
       <Section id="how-pricing-works" title="How pricing works">
-        <ul className="grid gap-x-6 gap-y-8 md:grid-cols-3">
+        <ul className="grid gap-4 md:grid-cols-3">
           {billing.map(([title, text]) => (
-            <li key={title} className="flex flex-col gap-2.5 border-t-2 border-ink pt-5">
+            <li key={title} className="tile flex flex-col gap-2.5 p-6">
               <h3 className="text-xl leading-tight font-semibold tracking-[-0.015em]">{title}</h3>
               <p className="text-ink-2">{text}</p>
             </li>

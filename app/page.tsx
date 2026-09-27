@@ -85,9 +85,9 @@ export default function HomePage() {
 
       <Section id="problem" eyebrow="The problem" title="Defect management breaks down between steps.">
         <p className="max-w-[60ch] text-lead">A defect may begin as a photograph on one phone, become a task in an email and end up as a status in a spreadsheet. By handover, nobody can say with confidence who fixed it or whether anyone checked.</p>
-        <ul className="grid border-t border-line md:grid-cols-2">
+        <ul className="grid gap-4 md:grid-cols-2">
           {problems.map(([icon, title, text]) => (
-            <li key={title} className="flex gap-5 border-b border-line py-7 md:odd:border-r md:odd:pr-6 md:even:pl-7">
+            <li key={title} className="tile flex gap-5 p-7">
               <FeatureIcon name={icon} />
               <div className="flex flex-col gap-1.5">
                 <h3 className="text-lg leading-tight font-semibold tracking-[-0.01em]">{title}</h3>
@@ -99,12 +99,12 @@ export default function HomePage() {
       </Section>
 
       <Section id="how-it-works" eyebrow="How it works" title="How a defect gets closed in SiteResolve.">
-        <ol className="grid border-t border-line">
+        <ol className="grid gap-20 pt-4 lg:gap-28">
           {homeSteps.map((step, i) => {
             const flip = i % 2 === 1;
             const visual = stepPhotos[i];
             return (
-              <li key={step.name} className={cn('grid items-start gap-10 border-b border-line py-14 lg:gap-14', flip ? 'lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]' : 'lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]')}>
+              <li key={step.name} className={cn('grid items-start gap-10 lg:gap-14', flip ? 'lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]' : 'lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]')}>
                 <div className={cn('flex flex-col gap-3 lg:sticky lg:top-28', flip && 'lg:order-2')}>
                   <p className="text-sm font-semibold text-link">{step.name}</p>
                   <h3 className="text-h3">{step.heading}</h3>
@@ -126,9 +126,9 @@ export default function HomePage() {
               <p className="text-ink">Use a phone or tablet to record defects at the location where they are found. Add photographs, notes and location details before information is lost or passed between teams.</p>
               <p>Reports save to the phone when there is no signal, in a basement or on a remote plot, and upload when the connection returns.</p>
             </div>
-            <ul className="border-t border-line">
+            <ul className="grid gap-2">
               {siteFeatures.map(([icon, label]) => (
-                <li key={label} className="flex items-center gap-3 border-b border-line py-3.5 font-semibold"><FeatureIcon name={icon} size="sm" />{label}</li>
+                <li key={label} className="tile flex items-center gap-3 px-4 py-3 font-semibold"><FeatureIcon name={icon} size="sm" />{label}</li>
               ))}
             </ul>
           </div>
@@ -142,9 +142,9 @@ export default function HomePage() {
 
       <Section id="case-study" eyebrow="Representative scenario" title="A fire door that would not close."
         intro="A worked example of one defect over one week. The site, the people and the subcontractor are made up for illustration.">
-        <ol className="grid gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-5">
+        <ol className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
           {caseStudy.map((c) => (
-            <li key={c.stage} className="flex flex-col gap-2.5 border-t-2 border-ink pt-4">
+            <li key={c.stage} className="tile flex flex-col gap-2.5 p-5">
               <span className="font-mono text-[0.8125rem] font-semibold text-ink-2">{c.day}</span>
               <h3 className="text-xl leading-tight font-semibold tracking-[-0.015em]">{c.stage}</h3>
               <p className="text-sm font-semibold text-link">{c.who}</p>
@@ -154,9 +154,9 @@ export default function HomePage() {
           ))}
         </ol>
         <IssueRecord />
-        <dl className="grid border-y border-line sm:grid-cols-3">
-          {caseAnswers.map(([q, who, detail], i) => (
-            <div key={q} className={cn('flex flex-col gap-1 py-6 sm:px-6', i > 0 ? 'border-line max-sm:border-t sm:border-l' : 'sm:pl-0')}>
+        <dl className="grid gap-3 sm:grid-cols-3">
+          {caseAnswers.map(([q, who, detail]) => (
+            <div key={q} className="tile flex flex-col gap-1 p-6">
               <dt className="text-sm font-semibold text-ink-2">{q}</dt>
               <dd className="text-2xl font-semibold tracking-[-0.015em]">{who}</dd>
               <dd className="text-ink-2">{detail}</dd>
@@ -166,9 +166,9 @@ export default function HomePage() {
       </Section>
 
       <Section id="solutions" eyebrow="Solutions" title="The same four steps on a building site, an estate or a plant room.">
-        <ul className="grid border-t border-line">
+        <ul className="grid gap-3">
           {solutions.map((s) => (
-            <li key={s.id} className="grid grid-cols-[40px_minmax(0,1fr)] items-center gap-x-6 gap-y-2 border-b border-line py-6 lg:grid-cols-[40px_260px_minmax(0,1fr)_auto] lg:gap-x-8">
+            <li key={s.id} className="tile grid grid-cols-[40px_minmax(0,1fr)] items-center gap-x-6 gap-y-2 px-6 py-5 lg:grid-cols-[40px_260px_minmax(0,1fr)_auto] lg:gap-x-8">
               <FeatureIcon name={s.icon} />
               <h3 className="text-[1.375rem] leading-tight font-semibold tracking-[-0.01em]">{s.name}</h3>
               <p className="text-ink-2 max-lg:col-start-2">{s.preview}</p>

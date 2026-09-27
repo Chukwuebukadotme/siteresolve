@@ -37,9 +37,9 @@ export default function AboutPage() {
       </Section>
 
       <Section id="principles" title="Principles">
-        <ul className="grid gap-x-6 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {principles.map(([title, text]) => (
-            <li key={title} className="flex flex-col gap-2.5 border-t border-line pt-5">
+            <li key={title} className="tile flex flex-col gap-2.5 p-6">
               <h3 className="text-lg leading-tight font-semibold">{title}</h3>
               <p className="text-ink-2">{text}</p>
             </li>

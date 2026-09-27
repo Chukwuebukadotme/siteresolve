@@ -10,7 +10,7 @@ export function Section({
 }) {
   const headingId = `${id}-h`;
   return (
-    <section id={id} aria-labelledby={headingId} className={cn('py-20 md:py-30', dark ? 'dk' : 'sec border-line [.sec+&]:border-t', className)}>
+    <section id={id} aria-labelledby={headingId} className={cn('py-20 md:py-30', dark ? 'dk' : 'sec', className)}>
       <div className="wrap flex flex-col gap-8">
         {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
         <h2 id={headingId} className="max-w-[24ch] text-h2">{title}</h2>
@@ -23,7 +23,7 @@ export function Section({
 
 export function PageHeader({ id = 'page-h', eyebrow, title, lead, children }: { id?: string; eyebrow: ReactNode; title: ReactNode; lead: ReactNode; children?: ReactNode }) {
   return (
-    <section aria-labelledby={id} className="border-b border-line py-16 text-center md:pt-26 md:pb-24">
+    <section aria-labelledby={id} className="bg-surface-200 py-16 text-center md:pt-26 md:pb-24">
       <div className="wrap flex flex-col items-center gap-5">
         <Eyebrow pill>{eyebrow}</Eyebrow>
         <h1 id={id} className="max-w-[22ch] text-h1">{title}</h1>

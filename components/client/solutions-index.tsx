@@ -20,13 +20,13 @@ export function SolutionsIndex({ items }: { items: ReadonlyArray<{ id: string; n
 
   return (
     <nav aria-label="Solutions on this page" className="lg:sticky lg:top-26">
-      <ul className="flex flex-wrap gap-2 lg:flex-col lg:gap-0 lg:border-l lg:border-line">
+      <ul className="flex flex-wrap gap-2 lg:flex-col lg:gap-1">
         {items.map((item) => (
           <li key={item.id}>
             <a
               href={`#${item.id}`}
               aria-current={active === item.id ? 'true' : undefined}
-              className="flex min-h-10 items-center rounded-full border border-line-strong px-3.5 text-sm font-semibold text-ink no-underline hover:bg-surface-200 lg:-ml-px lg:min-h-11 lg:rounded-none lg:border-0 lg:border-l-2 lg:border-transparent lg:px-4 lg:text-[0.9375rem] lg:text-ink-2 lg:hover:border-brand lg:hover:bg-transparent lg:hover:text-link aria-[current=true]:lg:border-brand aria-[current=true]:lg:text-link"
+              className="flex min-h-10 items-center rounded-full bg-surface-200 px-3.5 text-sm font-semibold text-ink no-underline hover:bg-surface-300 lg:min-h-11 lg:rounded-md lg:bg-transparent lg:px-4 lg:text-[0.9375rem] lg:text-ink-2 lg:hover:bg-surface-200 lg:hover:text-ink aria-[current=true]:bg-brand-subtle aria-[current=true]:text-ink"
             >
               {item.name}
             </a>

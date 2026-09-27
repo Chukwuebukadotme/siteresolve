@@ -11,7 +11,7 @@ const linkClass = 'inline-flex min-h-9 items-center text-left text-[0.9375rem] t
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-line bg-surface-100 pt-18 pb-10">
+    <footer className="bg-surface-200 pt-18 pb-10">
       <div className="wrap grid gap-12 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)]">
         <div className="flex max-w-[36ch] flex-col gap-4">
           <Brand />
@@ -41,7 +41,7 @@ export function Footer() {
             <li><CookieSettingsButton className={linkClass} /></li>
           </FooterColumn>
         </nav>
-        <p className="border-t border-line pt-6 text-sm text-ink-2 lg:col-span-2">© {year} SiteResolve. All rights reserved.</p>
+        <p className="pt-4 text-sm text-ink-2 lg:col-span-2">© {year} SiteResolve. All rights reserved.</p>
       </div>
     </footer>
   );
